@@ -1,0 +1,14 @@
+1. Create resource group
+
+# set subID and myRG values by using secrets.txt 
+
+loc="eastus2"
+myApp="blizzApp"
+
+# using azure account AS4B
+
+az group create -n $myRG -l $loc
+
+
+az ad sp create-for-rbac --name $myApp --role contributor --scopes /subscriptions/$subID/resourceGroups/$myRG --sdk-auth
+
